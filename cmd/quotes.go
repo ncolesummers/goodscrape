@@ -34,8 +34,7 @@ import (
 )
 
 var (
-	searchURL string = "https://www.goodreads.com/quotes/search?q=%s&commit=Search"
-	// tagURL string = "https://goodreads.com/quotes/tag/%s"
+	searchURL     string         = "https://www.goodreads.com/quotes/search?q=%s&commit=Search"
 	contentRegexp *regexp.Regexp = regexp.MustCompile("“(.+?)”")
 	quotesCmd                    = &cobra.Command{
 		Use:   "quotes",
@@ -76,7 +75,6 @@ var (
 				quotes = append(quotes, Quote{
 					Content: results[0][0],
 					Author:  e.ChildText(".authorOrTitle"),
-					// Tags:
 				})
 
 				fmt.Print(".")
@@ -93,12 +91,6 @@ var (
 			c.Visit(fmt.Sprintf(searchURL, query))
 
 			fmt.Printf("Scraped %d quotes.\n\n", len(quotes))
-
-			// var formattedQuotes []string
-
-			// for _, quote := range quotes {
-			// 	formattedQuotes = append(formattedQuotes, quote.String())
-			// }
 
 			toWrite, err := json.MarshalIndent(quotes, "", "  ")
 			if err != nil {
@@ -117,7 +109,6 @@ var (
 type Quote struct {
 	Author  string `json: "author"`
 	Content string `json: "content"`
-	// Tags []string
 }
 
 func (q *Quote) String() string {
