@@ -63,8 +63,8 @@ func init() {
 	// will be global for your application.
 
 	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.goodscrape.yaml)")
-	rootCmd.PersistentFlags().IntVarP(&amount, "amount", "a", 10, "The minimum number of results to return.  Default is 20.")
-	rootCmd.PersistentFlags().StringVarP(&outFile, "filename", "f", "quotes.json", "The name of the file to save your results to.  Default is quotes.json.")
+	rootCmd.PersistentFlags().IntVarP(&amount, "amount", "a", 20, "The minimum number of results to return.")
+	rootCmd.PersistentFlags().StringVarP(&outFile, "filename", "f", "quotes.json", "The name of the file to save your results to.")
 	// Cobra also supports local flags, which will only run
 	// when this action is called directly.
 	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
