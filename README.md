@@ -1,5 +1,5 @@
 # goodscrape
-A CLI application to scrape quotes from Goodreads
+A CLI application to scrape quotes from Goodreads.
 I would prefer to use their API, but they do not provide new keys 😢
 
 ## Usage
